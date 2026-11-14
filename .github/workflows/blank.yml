@@ -1,0 +1,32 @@
+
+name: Simple Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Iniciar máquina virtual
+        run: |
+          echo "Máquina virtual iniciada!"
+          echo "Sistema operacional:"
+          uname -a
+
+      - name: Informações do sistema
+        run: |
+          echo "Processador:"
+          lscpu
+          echo "Memória RAM:"
+          free -h
+          echo "Armazenamento:"
+          df -h
+
+      - name: Finalizar
+        run: echo "Workflow concluído!"
+        
